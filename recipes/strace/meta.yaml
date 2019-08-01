@@ -1,0 +1,49 @@
+{% set name = "strace" %}
+{% set version = "5.2" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/{{ name }}/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.xz
+  sha256: d513bc085609a9afd64faf2ce71deb95b96faf46cd7bc86048bc655e4e4c24d2
+
+build:
+  skip: True [not linux]
+  number: 0
+  # without creating a 'gcc' symlink that points to $CC
+  # the configure script will fail when "looking for a C compiler that generates native executables"
+  script: "set -x; ln -s ${CC} $(dirname ${CC})/gcc && ./configure --prefix=${PREFIX} --host=${HOST} --build=${BUILD} && make && make install && make installcheck"
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+
+
+about:
+  home: http://strace.io
+  license: LGPL-2.1
+  license_family: LGPL
+  license_file: COPYING
+  summary: 'a diagnostic, debugging and instructional userspace utility'
+
+  description: |
+       strace is a useful diagnostic, instructional, and debugging tool.
+       System administrators, diagnosticians and trouble-shooters will find
+       it invaluable for solving problems with programs for which the source
+       is not readily available since they do not need to be recompiled in
+       order to trace them.  Students, hackers and the overly-curious will
+       find that a great deal can be learned about a system and its system
+       calls by tracing even ordinary programs.  And programmers will find
+       that since system calls and signals are events that happen at the
+       user/kernel interface, a close examination of this boundary is very
+       useful for bug isolation, sanity checking and attempting to capture
+       race conditions.
+  doc_url: http://man7.org/linux/man-pages/man1/strace.1.html
+  dev_url: https://github.com/strace/strace
+
+extra:
+  recipe-maintainers:
+    - timsnyder
+

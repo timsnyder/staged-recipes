@@ -1,0 +1,26 @@
+diff --git a/lib/Text/Diff/Config.pm b/lib/Text/Diff/Config.pm
+index 403664359..8aa28d4f9 100644
+--- a/lib/Text/Diff/Config.pm
++++ b/lib/Text/Diff/Config.pm
+@@ -4,7 +4,7 @@ use 5.006;
+ use strict;
+ use warnings;
+ 
+-our $VERSION   = '1.44';
++our $VERSION   = '1.45';
+ our $Output_Unicode;
+ 
+ BEGIN
+diff --git a/lib/Text/Diff/Table.pm b/lib/Text/Diff/Table.pm
+index 42710bf4b..de76e9449 100644
+--- a/lib/Text/Diff/Table.pm
++++ b/lib/Text/Diff/Table.pm
+@@ -6,7 +6,7 @@ use warnings;
+ use Carp;
+ use Text::Diff::Config;
+ 
+-our $VERSION   = '1.44';
++our $VERSION   = '1.45';
+ our @ISA       = qw( Text::Diff::Base Exporter );
+ our @EXPORT_OK = qw( expand_tabs );
+ 

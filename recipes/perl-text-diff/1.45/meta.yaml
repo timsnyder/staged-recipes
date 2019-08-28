@@ -10,6 +10,8 @@ source:
   fn: Text-Diff-1.45.tar.gz
   url: https://cpan.metacpan.org/authors/id/N/NE/NEILB/Text-Diff-1.45.tar.gz
   sha256: {{ sha256 }}
+  patches:
+     - sublib_versions_not_in_sync.patch
 
 # If this is a new build for the same version, increment the build
 # number. If you do not include this key, it defaults to 0.

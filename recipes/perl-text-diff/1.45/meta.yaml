@@ -32,7 +32,6 @@ test:
   # Perl 'use' tests
   imports:
     - Text::Diff
-    - Text::Diff::Base
     - Text::Diff::Config
     - Text::Diff::Table
 

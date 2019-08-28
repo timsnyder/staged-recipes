@@ -1,0 +1,67 @@
+{% set name = "perl-test-exception" %}
+{% set version = "0.43" %}
+{% set sha256 = "156b13f07764f766d8b45a43728f2439af81a3512625438deab783b7883eb533" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Test-Exception-0.43.tar.gz
+  url: https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Exception-0.43.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-sub-uplevel
+    #- perl-base
+    #- perl-carp
+    #- perl-test-builder
+    #- perl-test-builder-tester
+    #- perl-extutils-makemaker
+    #- perl-overload
+    #- perl-test-more
+    #- perl-test-harness
+    #- perl-exporter
+    #- perl-strict
+    #- perl-warnings
+
+  run:
+    - perl
+    - perl-sub-uplevel
+    #- perl-base
+    #- perl-test-builder
+    #- perl-strict
+    #- perl-test-builder-tester
+    #- perl-test-harness
+    #- perl-exporter
+    #- perl-carp
+    #- perl-warnings
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Test::Exception
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/Test-More/test-exception
+  license: perl_5
+  summary: 'Test exception-based code'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Test::Exception
+  cpan_module: Test::Exception
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

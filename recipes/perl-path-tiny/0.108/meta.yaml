@@ -1,0 +1,91 @@
+{% set name = "perl-path-tiny" %}
+{% set version = "0.108" %}
+{% set sha256 = "3c49482be2b3eb7ddd7e73a5b90cff648393f5d5de334ff126ce7a3632723ff5" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Path-Tiny-0.108.tar.gz
+  url: https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.108.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-warnings-register
+    #- perl-open
+    #- perl-file-spec-unix
+    #- perl-file-glob
+    #- perl-file-spec
+    #- perl-file-stat
+    #- perl-overload
+    #- perl-lib
+    #- perl-file-path
+    #- perl-digest-sha
+    #- perl-encode
+    #- perl-exporter
+    #- perl-strict
+    #- perl-carp
+    #- perl-file-basename
+    #- perl-fcntl
+    #- perl-file-copy
+    #- perl-file-temp
+    #- perl-cwd
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-digest
+    #- perl-digest-md5
+    #- perl-warnings
+    #- perl-constant
+    #- perl-file-spec-functions
+
+  run:
+    - perl
+    #- perl-fcntl
+    #- perl-file-glob
+    #- perl-file-copy
+    #- perl-strict
+    #- perl-file-temp
+    #- perl-file-spec
+    #- perl-file-stat
+    #- perl-overload
+    #- perl-file-path
+    #- perl-cwd
+    #- perl-digest-sha
+    #- perl-encode
+    #- perl-digest
+    #- perl-exporter
+    #- perl-carp
+    #- perl-warnings
+    #- perl-constant
+    #- perl-warnings-register
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Path::Tiny
+    - Path::Tiny::Error
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/dagolden/Path-Tiny
+  license: apache_2_0
+  summary: 'File path utility'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Path::Tiny
+  cpan_module: Path::Tiny
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

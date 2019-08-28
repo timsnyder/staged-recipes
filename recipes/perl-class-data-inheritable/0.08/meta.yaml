@@ -1,0 +1,46 @@
+{% set name = "perl-class-data-inheritable" %}
+{% set version = "0.08" %}
+{% set sha256 = "9967feceea15227e442ec818723163eb6d73b8947e31f16ab806f6e2391af14a" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Class-Data-Inheritable-0.08.tar.gz
+  url: https://cpan.metacpan.org/authors/id/T/TM/TMTM/Class-Data-Inheritable-0.08.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+
+  run:
+    - perl
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Class::Data::Inheritable
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/Class::Data::Inheritable
+  license: perl_5
+  summary: 'Inheritable, overridable class data'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Class::Data::Inheritable
+  cpan_module: Class::Data::Inheritable
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

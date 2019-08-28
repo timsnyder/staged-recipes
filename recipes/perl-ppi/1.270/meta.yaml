@@ -1,0 +1,183 @@
+{% set name = "perl-ppi" %}
+{% set version = "1.270" %}
+{% set sha256 = "622a698c781bb85d2bdf7bbfe040fe70d33b79774c9ae01fce2375dc73faf457" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: PPI-1.270.tar.gz
+  url: https://cpan.metacpan.org/authors/id/M/MI/MITHALDU/PPI-1.270.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-task-weaken
+    - perl-class-inspector
+    - perl-test-deep
+    - perl-test-nowarnings
+    - perl-test-object
+    - perl-params-util
+    - perl-io-string
+    - perl-clone
+    - perl-test-subcalls
+    #- perl-constant
+    #- perl-file-spec-unix
+    #- perl-b
+    #- perl-file-spec
+    #- perl-overload
+    #- perl-lib
+    #- perl-file-path
+    #- perl-encode
+    #- perl-exporter
+    #- perl-carp
+    #- perl-strict
+    #- perl-storable
+    #- perl-utf8
+    #- perl-file-copy
+    #- perl-file-temp
+    #- perl-extutils-makemaker
+    #- perl-if
+    #- perl-test-more
+    #- perl-scalar-util
+    #- perl-digest-md5
+    #- perl-warnings
+    #- perl-list-util
+    #- perl-file-spec-functions
+
+  run:
+    - perl
+    - perl-io-string
+    - perl-task-weaken
+    - perl-params-util
+    - perl-clone
+    #- perl-storable
+    #- perl-carp
+    #- perl-file-spec
+    #- perl-list-util
+    #- perl-overload
+    #- perl-file-path
+    #- perl-scalar-util
+    #- perl-digest-md5
+    #- perl-exporter
+    #- perl-strict
+    #- perl-constant
+
+test:
+  # Perl 'use' tests
+  imports:
+    - PPI
+    - PPI::Cache
+    - PPI::Document
+    - PPI::Document::File
+    - PPI::Document::Fragment
+    - PPI::Document::Normalized
+    - PPI::Dumper
+    - PPI::Element
+    - PPI::Exception
+    - PPI::Exception::ParserRejection
+    - PPI::Find
+    - PPI::Lexer
+    - PPI::Node
+    - PPI::Normal
+    - PPI::Normal::Standard
+    - PPI::Singletons
+    - PPI::Statement
+    - PPI::Statement::Break
+    - PPI::Statement::Compound
+    - PPI::Statement::Data
+    - PPI::Statement::End
+    - PPI::Statement::Expression
+    - PPI::Statement::Given
+    - PPI::Statement::Include
+    - PPI::Statement::Include::Perl6
+    - PPI::Statement::Null
+    - PPI::Statement::Package
+    - PPI::Statement::Scheduled
+    - PPI::Statement::Sub
+    - PPI::Statement::Unknown
+    - PPI::Statement::UnmatchedBrace
+    - PPI::Statement::Variable
+    - PPI::Statement::When
+    - PPI::Structure
+    - PPI::Structure::Block
+    - PPI::Structure::Condition
+    - PPI::Structure::Constructor
+    - PPI::Structure::For
+    - PPI::Structure::Given
+    - PPI::Structure::List
+    - PPI::Structure::Subscript
+    - PPI::Structure::Unknown
+    - PPI::Structure::When
+    - PPI::Token
+    - PPI::Token::ArrayIndex
+    - PPI::Token::Attribute
+    - PPI::Token::BOM
+    - PPI::Token::Cast
+    - PPI::Token::Comment
+    - PPI::Token::DashedWord
+    - PPI::Token::Data
+    - PPI::Token::End
+    - PPI::Token::HereDoc
+    - PPI::Token::Label
+    - PPI::Token::Magic
+    - PPI::Token::Number
+    - PPI::Token::Number::Binary
+    - PPI::Token::Number::Exp
+    - PPI::Token::Number::Float
+    - PPI::Token::Number::Hex
+    - PPI::Token::Number::Octal
+    - PPI::Token::Number::Version
+    - PPI::Token::Operator
+    - PPI::Token::Pod
+    - PPI::Token::Prototype
+    - PPI::Token::Quote
+    - PPI::Token::Quote::Double
+    - PPI::Token::Quote::Interpolate
+    - PPI::Token::Quote::Literal
+    - PPI::Token::Quote::Single
+    - PPI::Token::QuoteLike
+    - PPI::Token::QuoteLike::Backtick
+    - PPI::Token::QuoteLike::Command
+    - PPI::Token::QuoteLike::Readline
+    - PPI::Token::QuoteLike::Regexp
+    - PPI::Token::QuoteLike::Words
+    - PPI::Token::Regexp
+    - PPI::Token::Regexp::Match
+    - PPI::Token::Regexp::Substitute
+    - PPI::Token::Regexp::Transliterate
+    - PPI::Token::Separator
+    - PPI::Token::Structure
+    - PPI::Token::Symbol
+    - PPI::Token::Unknown
+    - PPI::Token::Whitespace
+    - PPI::Token::Word
+    - PPI::Tokenizer
+    - PPI::Transform
+    - PPI::Transform::UpdateCopyright
+    - PPI::Util
+    - PPI::XSAccessor
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/adamkennedy/PPI
+  license: perl_5
+  summary: 'Parse, Analyze and Manipulate Perl (without perl)'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: PPI
+  cpan_module: PPI
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

@@ -1,0 +1,56 @@
+{% set name = "perl-test-pod" %}
+{% set version = "1.52" %}
+{% set sha256 = "60a8dbcc60168bf1daa5cc2350236df9343e9878f4ab9830970a5dde6fe8e5fc" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Test-Pod-1.52.tar.gz
+  url: https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Pod-1.52.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-pod-simple
+    #- perl-test-builder-tester
+    #- perl-file-spec
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-file-find
+
+  run:
+    - perl
+    #- perl-test-builder-tester
+    #- perl-file-find
+    #- perl-pod-simple
+    #- perl-test-more
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Test::Pod
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://search.cpan.org/dist/Test-Pod/
+  license: perl_5
+  summary: 'check for POD errors in files'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Test::Pod
+  cpan_module: Test::Pod
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

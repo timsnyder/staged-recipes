@@ -1,0 +1,49 @@
+{% set name = "perl-lingua-en-inflect" %}
+{% set version = "1.904" %}
+{% set sha256 = "54d344884ba9b585680975bbd4049ddbf27bf654446fb00c7e1fc538e08c3173" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Lingua-EN-Inflect-1.904.tar.gz
+  url: https://cpan.metacpan.org/authors/id/D/DC/DCONWAY/Lingua-EN-Inflect-1.904.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-extutils-makemaker
+    #- perl-test-more
+
+  run:
+    - perl
+    #- perl-test-more
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Lingua::EN::Inflect
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/Lingua::EN::Inflect
+  license: unknown
+  summary: 'Convert singular to plural. Select "a" or "an".'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Lingua::EN::Inflect
+  cpan_module: Lingua::EN::Inflect
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

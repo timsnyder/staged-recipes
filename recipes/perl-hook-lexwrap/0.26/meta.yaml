@@ -1,0 +1,57 @@
+{% set name = "perl-hook-lexwrap" %}
+{% set version = "0.26" %}
+{% set sha256 = "b60bdc5f98f94f9294b06adef82b1d996da192d5f183f9f434b610fd1137ec2d" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Hook-LexWrap-0.26.tar.gz
+  url: https://cpan.metacpan.org/authors/id/E/ET/ETHER/Hook-LexWrap-0.26.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-file-spec
+    #- perl-extutils-makemaker
+    #- perl-overload
+    #- perl-test-more
+    #- perl-carp
+    #- perl-warnings
+    #- perl-strict
+
+  run:
+    - perl
+    #- perl-carp
+    #- perl-overload
+    #- perl-warnings
+    #- perl-strict
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Hook::LexWrap
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/karenetheridge/Hook-LexWrap
+  license: perl_5
+  summary: 'Lexically scoped subroutine wrappers'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Hook::LexWrap
+  cpan_module: Hook::LexWrap
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

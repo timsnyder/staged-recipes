@@ -1,0 +1,69 @@
+{% set name = "perl-extutils-helpers" %}
+{% set version = "0.026" %}
+{% set sha256 = "de901b6790a4557cf4ec908149e035783b125bf115eb9640feb1bc1c24c33416" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: ExtUtils-Helpers-0.026.tar.gz
+  url: https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Helpers-0.026.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-file-spec-functions
+    #- perl-file-basename
+    #- perl-file-copy
+    #- perl-strict
+    #- perl-cwd
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-lib
+    #- perl-text-parsewords
+    #- perl-carp
+    #- perl-warnings
+    #- perl-exporter
+
+  run:
+    - perl
+    #- perl-file-basename
+    #- perl-carp
+    #- perl-file-copy
+    #- perl-text-parsewords
+    #- perl-exporter
+    #- perl-strict
+    #- perl-warnings
+    #- perl-file-spec-functions
+
+test:
+  # Perl 'use' tests
+  imports:
+    - ExtUtils::Helpers
+    - ExtUtils::Helpers::Unix
+    - ExtUtils::Helpers::VMS
+    - ExtUtils::Helpers::Windows
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/ExtUtils::Helpers
+  license: perl_5
+  summary: 'Various portability utilities for module builders'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: ExtUtils::Helpers
+  cpan_module: ExtUtils::Helpers
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

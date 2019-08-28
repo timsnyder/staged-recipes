@@ -1,0 +1,102 @@
+{% set name = "perl-log-log4perl" %}
+{% set version = "1.46" %}
+{% set sha256 = "31011a17c04e78016e73eaa4865d0481d2ffc3dc22813c61065d90ad73c64e6f" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Log-Log4perl-1.46.tar.gz
+  url: https://cpan.metacpan.org/authors/id/M/MS/MSCHILLI/Log-Log4perl-1.46.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-file-spec
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-file-path
+
+  run:
+    - perl
+    #- perl-file-spec
+    #- perl-test-more
+    #- perl-file-path
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Log::Log4perl
+    - Log::Log4perl::Appender
+    - Log::Log4perl::Appender::Buffer
+    - Log::Log4perl::Appender::DBI
+    - Log::Log4perl::Appender::File
+    - Log::Log4perl::Appender::Limit
+    - Log::Log4perl::Appender::RRDs
+    - Log::Log4perl::Appender::Screen
+    - Log::Log4perl::Appender::ScreenColoredLevels
+    - Log::Log4perl::Appender::Socket
+    - Log::Log4perl::Appender::String
+    - Log::Log4perl::Appender::Synchronized
+    - Log::Log4perl::Appender::TestArrayBuffer
+    - Log::Log4perl::Appender::TestBuffer
+    - Log::Log4perl::Appender::TestFileCreeper
+    - Log::Log4perl::Catalyst
+    - Log::Log4perl::Config
+    - Log::Log4perl::Config::BaseConfigurator
+    - Log::Log4perl::Config::DOMConfigurator
+    - Log::Log4perl::Config::PropertyConfigurator
+    - Log::Log4perl::Config::Watch
+    - Log::Log4perl::DateFormat
+    - Log::Log4perl::Filter
+    - Log::Log4perl::Filter::Boolean
+    - Log::Log4perl::Filter::LevelMatch
+    - Log::Log4perl::Filter::LevelRange
+    - Log::Log4perl::Filter::MDC
+    - Log::Log4perl::Filter::StringMatch
+    - Log::Log4perl::InternalDebug
+    - Log::Log4perl::JavaMap
+    - Log::Log4perl::JavaMap::ConsoleAppender
+    - Log::Log4perl::JavaMap::FileAppender
+    - Log::Log4perl::JavaMap::JDBCAppender
+    - Log::Log4perl::JavaMap::NTEventLogAppender
+    - Log::Log4perl::JavaMap::RollingFileAppender
+    - Log::Log4perl::JavaMap::SyslogAppender
+    - Log::Log4perl::JavaMap::TestBuffer
+    - Log::Log4perl::Layout
+    - Log::Log4perl::Layout::NoopLayout
+    - Log::Log4perl::Layout::PatternLayout
+    - Log::Log4perl::Layout::PatternLayout::Multiline
+    - Log::Log4perl::Layout::SimpleLayout
+    - Log::Log4perl::Level
+    - Log::Log4perl::Logger
+    - Log::Log4perl::MDC
+    - Log::Log4perl::NDC
+    - Log::Log4perl::Resurrector
+    - Log::Log4perl::Util
+    - Log::Log4perl::Util::Semaphore
+    - Log::Log4perl::Util::TimeTracker
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/Log::Log4perl
+  license: unknown
+  summary: 'Log4j implementation for Perl'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Log::Log4perl
+  cpan_module: Log::Log4perl
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

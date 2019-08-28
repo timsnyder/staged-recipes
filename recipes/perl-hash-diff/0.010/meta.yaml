@@ -1,0 +1,63 @@
+{% set name = "perl-hash-diff" %}
+{% set version = "0.010" %}
+{% set sha256 = "bc9a4aa38ec98f0a98289e35abf9a17c2f2a3239a2209a329800e0970aa2e0c5" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Hash-Diff-0.010.tar.gz
+  url: https://cpan.metacpan.org/authors/id/B/BO/BOLAV/Hash-Diff-0.010.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-hash-merge
+    #- perl-base
+    #- perl-strict
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-vars
+    #- perl-carp
+    #- perl-warnings
+    #- perl-ok
+    #- perl-exporter
+
+  run:
+    - perl
+    - perl-hash-merge
+    #- perl-base
+    #- perl-carp
+    #- perl-vars
+    #- perl-strict
+    #- perl-warnings
+    #- perl-exporter
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Hash::Diff
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/bolav/hash-diff
+  license: perl_5
+  summary: 'Return difference between two hashes as a hash'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Hash::Diff
+  cpan_module: Hash::Diff
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

@@ -1,0 +1,74 @@
+{% set name = "perl-forks" %}
+{% set version = "0.36" %}
+{% set sha256 = "61be24e44f4c6fea230e8354678beb5b7adcfefd909a47db8f0a251b0ab65993" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: forks-0.36.tar.gz
+  url: https://cpan.metacpan.org/authors/id/R/RY/RYBSKEJ/forks-0.36.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  build:
+  host:
+    - perl
+    - perl-devel-symdump
+    - perl-list-moreutils
+    - perl-acme-damn
+    - perl-sys-sigaction
+    #- perl-attribute-handlers
+    #- perl-storable
+    #- perl-io-socket
+    #- perl-time-hires
+    #- perl-file-spec
+    #- perl-extutils-makemaker
+    #- perl-if
+    #- perl-test-more
+    #- perl-scalar-util
+    - {{ compiler('c') }}
+
+  run:
+    - perl
+    - perl-devel-symdump
+    - perl-list-moreutils
+    - perl-acme-damn
+    - perl-sys-sigaction
+    #- perl-attribute-handlers
+    #- perl-storable
+    #- perl-io-socket
+    #- perl-time-hires
+    #- perl-file-spec
+    #- perl-if
+    #- perl-test-more
+    #- perl-scalar-util
+
+test:
+  # Perl 'use' tests
+  imports:
+    - forks
+    - forks::shared
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/forks
+  license: perl_5
+  summary: 'forks - emulate threads with fork'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: forks
+  cpan_module: forks
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

@@ -1,0 +1,104 @@
+{% set name = "perl-pod-pom" %}
+{% set version = "2.01" %}
+{% set sha256 = "1b50fba9bbdde3ead192beeba0eaddd0c614e3afb1743fa6fff805f57c56f7f4" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Pod-POM-2.01.tar.gz
+  url: https://cpan.metacpan.org/authors/id/N/NE/NEILB/Pod-POM-2.01.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-test-differences
+    - perl-file-slurper
+    - perl-text-diff
+    #- perl-findbin
+    #- perl-overload
+    #- perl-lib
+    #- perl-getopt-long
+    #- perl-encode
+    #- perl-vars
+    #- perl-exporter
+    #- perl-getopt-std
+    #- perl-strict
+    #- perl-file-basename
+    #- perl-utf8
+    #- perl-text-wrap
+    #- perl-parent
+    #- perl-cwd
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-scalar-util
+    #- perl-warnings
+    #- perl-constant
+
+  run:
+    - perl
+    #- perl-vars
+    #- perl-file-basename
+    #- perl-getopt-std
+    #- perl-findbin
+    #- perl-text-wrap
+    #- perl-parent
+    #- perl-overload
+    #- perl-lib
+    #- perl-getopt-long
+    #- perl-encode
+    #- perl-exporter
+    #- perl-strict
+    #- perl-warnings
+    #- perl-constant
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Pod::POM
+    - Pod::POM::Constants
+    - Pod::POM::Node
+    - Pod::POM::Node::Begin
+    - Pod::POM::Node::Code
+    - Pod::POM::Node::Content
+    - Pod::POM::Node::For
+    - Pod::POM::Node::Head1
+    - Pod::POM::Node::Head2
+    - Pod::POM::Node::Head3
+    - Pod::POM::Node::Head4
+    - Pod::POM::Node::Item
+    - Pod::POM::Node::Over
+    - Pod::POM::Node::Pod
+    - Pod::POM::Node::Sequence
+    - Pod::POM::Node::Text
+    - Pod::POM::Node::Verbatim
+    - Pod::POM::Nodes
+    - Pod::POM::Test
+    - Pod::POM::View
+    - Pod::POM::View::HTML
+    - Pod::POM::View::Pod
+    - Pod::POM::View::Text
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/neilb/Pod-POM
+  license: perl_5
+  summary: 'POD Object Model'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Pod::POM
+  cpan_module: Pod::POM
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

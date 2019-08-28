@@ -1,0 +1,66 @@
+{% set name = "perl-file-slurper" %}
+{% set version = "0.012" %}
+{% set sha256 = "4efb2ea416b110a1bda6f8133549cc6ea3676402e3caf7529fce0313250aa578" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: File-Slurper-0.012.tar.gz
+  url: https://cpan.metacpan.org/authors/id/L/LE/LEONT/File-Slurper-0.012.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-test-warnings
+    #- perl-perlio-encoding
+    #- perl-findbin
+    #- perl-strict
+    #- perl-file-temp
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-encode
+    #- perl-exporter
+    #- perl-carp
+    #- perl-warnings
+    #- perl-constant
+    #- perl-file-spec-functions
+
+  run:
+    - perl
+    #- perl-perlio-encoding
+    #- perl-carp
+    #- perl-encode
+    #- perl-exporter
+    #- perl-strict
+    #- perl-warnings
+    #- perl-constant
+
+test:
+  # Perl 'use' tests
+  imports:
+    - File::Slurper
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/File::Slurper
+  license: perl_5
+  summary: 'A simple, sane and efficient module to slurp a file'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: File::Slurper
+  cpan_module: File::Slurper
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

@@ -1,0 +1,61 @@
+{% set name = "perl-devel-stacktrace" %}
+{% set version = "2.04" %}
+{% set sha256 = "cd3c03ed547d3d42c61fa5814c98296139392e7971c092e09a431f2c9f5d6855" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Devel-StackTrace-2.04.tar.gz
+  url: https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Devel-StackTrace-2.04.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-base
+    #- perl-file-spec
+    #- perl-extutils-makemaker
+    #- perl-overload
+    #- perl-test-more
+    #- perl-scalar-util
+    #- perl-bytes
+    #- perl-strict
+    #- perl-warnings
+
+  run:
+    - perl
+    #- perl-file-spec
+    #- perl-overload
+    #- perl-scalar-util
+    #- perl-strict
+    #- perl-warnings
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Devel::StackTrace
+    - Devel::StackTrace::Frame
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/release/Devel-StackTrace
+  license: artistic_2
+  summary: 'An object representing a stack trace'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Devel::StackTrace
+  cpan_module: Devel::StackTrace
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

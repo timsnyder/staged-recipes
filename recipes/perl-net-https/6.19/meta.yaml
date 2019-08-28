@@ -1,0 +1,45 @@
+{% set name = "perl-net-https" %}
+{% set version = "6.19" %}
+{% set sha256 = "52b76ec13959522cae64d965f15da3d99dcb445eddd85d2ce4e4f4df385b2fc4" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Net-HTTP-6.19.tar.gz
+  url: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.19.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+
+  run:
+    - perl
+
+# test:
+  # Perl 'use' tests
+  # imports:
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/Net::HTTPS
+  license: perl_5
+  summary: 'Low-level HTTP over SSL/TLS connection (client)'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Net::HTTPS
+  cpan_module: Net::HTTPS
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

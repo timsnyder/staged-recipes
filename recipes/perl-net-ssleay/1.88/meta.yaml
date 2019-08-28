@@ -1,0 +1,53 @@
+{% set name = "perl-net-ssleay" %}
+{% set version = "1.88" %}
+{% set sha256 = "2000da483c8471a0b61e06959e92a6fca7b9e40586d5c828de977d3d2081cfdd" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Net-SSLeay-1.88.tar.gz
+  url: https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.88.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  build:
+  host:
+    - perl
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-mime-base64
+    - {{ compiler('c') }}
+
+  run:
+    - perl
+    #- perl-mime-base64
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Net::SSLeay
+    - Net::SSLeay::Handle
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/Net::SSLeay
+  license: artistic_2
+  summary: 'Perl extension for using OpenSSL'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Net::SSLeay
+  cpan_module: Net::SSLeay
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

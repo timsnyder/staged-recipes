@@ -1,0 +1,60 @@
+{% set name = "perl-list-moreutils-xs" %}
+{% set version = "0.428" %}
+{% set sha256 = "9d9fe621429dfe7cf2eb1299c192699ddebf060953e5ebdc1b4e293c6d6dd62d" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: List-MoreUtils-XS-0.428.tar.gz
+  url: https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-XS-0.428.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  build:
+  host:
+    - perl
+    #- perl-file-basename
+    #- perl-base
+    #- perl-ipc-cmd
+    #- perl-storable
+    #- perl-file-copy
+    #- perl-file-spec
+    #- perl-extutils-makemaker
+    #- perl-file-path
+    #- perl-test-more
+    #- perl-xsloader
+    #- perl-carp
+    - {{ compiler('c') }}
+
+  run:
+    - perl
+    #- perl-xsloader
+
+test:
+  # Perl 'use' tests
+  imports:
+    - List::MoreUtils::XS
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://metacpan.org/release/List-MoreUtils-XS
+  license: apache_2_0
+  summary: 'Provide the stuff missing in List::Util in XS'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: List::MoreUtils::XS
+  cpan_module: List::MoreUtils::XS
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

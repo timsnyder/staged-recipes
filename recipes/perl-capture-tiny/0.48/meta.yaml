@@ -1,0 +1,66 @@
+{% set name = "perl-capture-tiny" %}
+{% set version = "0.48" %}
+{% set sha256 = "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Capture-Tiny-0.48.tar.gz
+  url: https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-strict
+    #- perl-io-handle
+    #- perl-file-temp
+    #- perl-file-spec
+    #- perl-io-file
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-lib
+    #- perl-scalar-util
+    #- perl-exporter
+    #- perl-carp
+    #- perl-warnings
+
+  run:
+    - perl
+    #- perl-carp
+    #- perl-io-handle
+    #- perl-file-temp
+    #- perl-file-spec
+    #- perl-scalar-util
+    #- perl-exporter
+    #- perl-strict
+    #- perl-warnings
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Capture::Tiny
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/dagolden/Capture-Tiny
+  license: apache_2_0
+  summary: 'Capture STDOUT and STDERR from Perl, XS or external programs'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Capture::Tiny
+  cpan_module: Capture::Tiny
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

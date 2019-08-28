@@ -1,0 +1,64 @@
+{% set name = "perl-perl-tidy" %}
+{% set version = "20190601" %}
+{% set sha256 = "8f3d704b4eff457bf5bb70f9adf570690b2252dec31f75e8cb743392f1be338f" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Perl-Tidy-20190601.tar.gz
+  url: https://cpan.metacpan.org/authors/id/S/SH/SHANCOCK/Perl-Tidy-20190601.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-extutils-makemaker
+
+  run:
+    - perl
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Perl::Tidy
+    - Perl::Tidy::Debugger
+    - Perl::Tidy::DevNull
+    - Perl::Tidy::Diagnostics
+    - Perl::Tidy::FileWriter
+    - Perl::Tidy::Formatter
+    - Perl::Tidy::HtmlWriter
+    - Perl::Tidy::IOScalar
+    - Perl::Tidy::IOScalarArray
+    - Perl::Tidy::IndentationItem
+    - Perl::Tidy::LineBuffer
+    - Perl::Tidy::LineSink
+    - Perl::Tidy::LineSource
+    - Perl::Tidy::Logger
+    - Perl::Tidy::Tokenizer
+    - Perl::Tidy::VerticalAligner
+    - Perl::Tidy::VerticalAligner::Alignment
+    - Perl::Tidy::VerticalAligner::Line
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/Perl::Tidy
+  license: gpl_2
+  summary: 'indent and reformat perl scripts'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Perl::Tidy
+  cpan_module: Perl::Tidy
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

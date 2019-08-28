@@ -1,0 +1,51 @@
+{% set name = "perl-clone-choose" %}
+{% set version = "0.010" %}
+{% set sha256 = "5623481f58cee8edb96cd202aad0df5622d427e5f748b253851dfd62e5123632" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Clone-Choose-0.010.tar.gz
+  url: https://cpan.metacpan.org/authors/id/H/HE/HERMES/Clone-Choose-0.010.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-test-without-module
+    #- perl-extutils-makemaker
+    #- perl-storable
+    #- perl-test-more
+
+  run:
+    - perl
+    #- perl-storable
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Clone::Choose
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://metacpan.org/release/Clone-Choose
+  license: perl_5
+  summary: 'Choose appropriate clone utility'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Clone::Choose
+  cpan_module: Clone::Choose
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

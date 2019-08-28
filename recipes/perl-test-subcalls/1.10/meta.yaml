@@ -1,0 +1,64 @@
+{% set name = "perl-test-subcalls" %}
+{% set version = "1.10" %}
+{% set sha256 = "cbc1e9b35a05e71febc13e5ef547a31c8249899bb6011dbdc9d9ff366ddab6c2" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Test-SubCalls-1.10.tar.gz
+  url: https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-SubCalls-1.10.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-hook-lexwrap
+    #- perl-test-builder
+    #- perl-strict
+    #- perl-test-builder-tester
+    #- perl-file-spec
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-vars
+    #- perl-exporter
+    #- perl-warnings
+    #- perl-file-spec-functions
+
+  run:
+    - perl
+    - perl-hook-lexwrap
+    #- perl-vars
+    #- perl-test-builder
+    #- perl-file-spec
+    #- perl-test-more
+    #- perl-exporter
+    #- perl-strict
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Test::SubCalls
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/karenetheridge/Test-SubCalls
+  license: perl_5
+  summary: 'Track the number of times subs are called'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Test::SubCalls
+  cpan_module: Test::SubCalls
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

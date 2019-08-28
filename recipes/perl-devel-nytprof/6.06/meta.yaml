@@ -1,0 +1,75 @@
+{% set name = "perl-devel-nytprof" %}
+{% set version = "6.06" %}
+{% set sha256 = "a14227ca79f1750b92cc7b8b0a5806c92abc4964a21a7fb100bd4907d6c4be55" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Devel-NYTProf-6.06.tar.gz
+  url: https://cpan.metacpan.org/authors/id/T/TI/TIMB/Devel-NYTProf-6.06.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  build:
+  host:
+    - perl
+    - perl-json-maybexs
+    - perl-file-which
+    - perl-test-differences
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-getopt-long
+    #- perl-xsloader
+    #- perl-list-util
+    - {{ compiler('c') }}
+
+  run:
+    - perl
+    - perl-json-maybexs
+    - perl-file-which
+    - perl-test-differences
+    #- perl-xsloader
+    #- perl-list-util
+    #- perl-test-more
+    #- perl-getopt-long
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Devel::NYTProf
+    - Devel::NYTProf::Apache
+    - Devel::NYTProf::Constants
+    - Devel::NYTProf::Core
+    - Devel::NYTProf::Data
+    - Devel::NYTProf::FileHandle
+    - Devel::NYTProf::FileInfo
+    - Devel::NYTProf::ReadStream
+    - Devel::NYTProf::Reader
+    - Devel::NYTProf::Run
+    - Devel::NYTProf::SubCallInfo
+    - Devel::NYTProf::SubInfo
+    - Devel::NYTProf::Util
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://code.google.com/p/perl-devel-nytprof/
+  license: perl_5
+  summary: 'Powerful fast feature-rich Perl source code profiler'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Devel::NYTProf
+  cpan_module: Devel::NYTProf
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

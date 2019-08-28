@@ -1,0 +1,60 @@
+{% set name = "perl-extutils-installpaths" %}
+{% set version = "0.012" %}
+{% set sha256 = "84735e3037bab1fdffa3c2508567ad412a785c91599db3c12593a50a1dd434ed" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: ExtUtils-InstallPaths-0.012.tar.gz
+  url: https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-InstallPaths-0.012.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-extutils-config
+    #- perl-strict
+    #- perl-file-temp
+    #- perl-file-spec
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-carp
+    #- perl-warnings
+    #- perl-file-spec-functions
+
+  run:
+    - perl
+    - perl-extutils-config
+    #- perl-file-spec
+    #- perl-carp
+    #- perl-warnings
+    #- perl-strict
+
+test:
+  # Perl 'use' tests
+  imports:
+    - ExtUtils::InstallPaths
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/ExtUtils::InstallPaths
+  license: perl_5
+  summary: 'Build.PL install path logic made easy'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: ExtUtils::InstallPaths
+  cpan_module: ExtUtils::InstallPaths
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

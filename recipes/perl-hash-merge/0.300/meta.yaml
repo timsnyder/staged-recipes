@@ -1,0 +1,52 @@
+{% set name = "perl-hash-merge" %}
+{% set version = "0.300" %}
+{% set sha256 = "402fd52191d51415bb7163b7673fb4a108e3156493d7df931b8db4b2af757c40" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Hash-Merge-0.300.tar.gz
+  url: https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Hash-Merge-0.300.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-clone-choose
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-scalar-util
+
+  run:
+    - perl
+    - perl-clone-choose
+    #- perl-scalar-util
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Hash::Merge
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://metacpan.org/release/Hash-Merge
+  license: perl_5
+  summary: 'Merges arbitrarily deep hashes into a single hash'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Hash::Merge
+  cpan_module: Hash::Merge
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

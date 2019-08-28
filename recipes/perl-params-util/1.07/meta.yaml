@@ -1,0 +1,54 @@
+{% set name = "perl-params-util" %}
+{% set version = "1.07" %}
+{% set sha256 = "30f1ec3f2cf9ff66ae96f973333f23c5f558915bb6266881eac7423f52d7c76c" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Params-Util-1.07.tar.gz
+  url: https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Params-Util-1.07.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  build:
+  host:
+    - perl
+    #- perl-extutils-cbuilder
+    #- perl-file-spec
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-scalar-util
+    - {{ compiler('c') }}
+
+  run:
+    - perl
+    #- perl-scalar-util
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Params::Util
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/Params::Util
+  license: perl_5
+  summary: 'Simple, compact and correct param-checking functions'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Params::Util
+  cpan_module: Params::Util
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

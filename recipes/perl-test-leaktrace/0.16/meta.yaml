@@ -1,0 +1,54 @@
+{% set name = "perl-test-leaktrace" %}
+{% set version = "0.16" %}
+{% set sha256 = "5f089eed915f1ec8c743f6d2777c3ecd0ca01df2f7b9e10038d316952583e403" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Test-LeakTrace-0.16.tar.gz
+  url: https://cpan.metacpan.org/authors/id/L/LE/LEEJO/Test-LeakTrace-0.16.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  build:
+  host:
+    - perl
+    #- perl-exporter
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    - {{ compiler('c') }}
+
+  run:
+    - perl
+    #- perl-exporter
+    #- perl-test-more
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Test::LeakTrace
+    - Test::LeakTrace::Script
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/Test::LeakTrace
+  license: perl_5
+  summary: 'Traces memory leaks'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Test::LeakTrace
+  cpan_module: Test::LeakTrace
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

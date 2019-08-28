@@ -1,0 +1,54 @@
+{% set name = "perl-json-maybexs" %}
+{% set version = "1.004000" %}
+{% set sha256 = "59bda02e8f4474c73913723c608b539e2452e16c54ed7f0150c01aad06e0a126" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: JSON-MaybeXS-1.004000.tar.gz
+  url: https://cpan.metacpan.org/authors/id/H/HA/HAARG/JSON-MaybeXS-1.004000.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-json-pp
+    #- perl-scalar-util
+    #- perl-carp
+
+  run:
+    - perl
+    #- perl-carp
+    #- perl-json-pp
+    #- perl-scalar-util
+
+test:
+  # Perl 'use' tests
+  imports:
+    - JSON::MaybeXS
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/JSON::MaybeXS
+  license: perl_5
+  summary: 'Use Cpanel::JSON::XS with a fallback to JSON::XS and JSON::PP'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: JSON::MaybeXS
+  cpan_module: JSON::MaybeXS
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

@@ -1,0 +1,62 @@
+{% set name = "perl-test-warnings" %}
+{% set version = "0.026" %}
+{% set sha256 = "ae2b68b1b5616704598ce07f5118efe42dc4605834453b7b2be14e26f9cc9a08" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Test-Warnings-0.026.tar.gz
+  url: https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-carp
+    #- perl-test-builder
+    #- perl-parent
+    #- perl-file-spec
+    #- perl-if
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-exporter
+    #- perl-strict
+    #- perl-warnings
+
+  run:
+    - perl
+    #- perl-test-builder
+    #- perl-strict
+    #- perl-parent
+    #- perl-exporter
+    #- perl-carp
+    #- perl-warnings
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Test::Warnings
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/karenetheridge/Test-Warnings
+  license: perl_5
+  summary: 'Test for warnings and the lack of them'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Test::Warnings
+  cpan_module: Test::Warnings
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

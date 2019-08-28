@@ -1,0 +1,49 @@
+{% set name = "perl-b-keywords" %}
+{% set version = "1.20" %}
+{% set sha256 = "60fec03b6e75c2810fa89b8b29e7f936a9d5224d6e52b509551d5f6f5fe95b8a" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: B-Keywords-1.20.tar.gz
+  url: https://cpan.metacpan.org/authors/id/R/RU/RURBAN/B-Keywords-1.20.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-b
+    #- perl-extutils-makemaker
+
+  run:
+    - perl
+    #- perl-b
+
+test:
+  # Perl 'use' tests
+  imports:
+    - B::Keywords
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/B::Keywords
+  license: unknown
+  summary: 'Lists of reserved barewords and symbol names'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: B::Keywords
+  cpan_module: B::Keywords
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

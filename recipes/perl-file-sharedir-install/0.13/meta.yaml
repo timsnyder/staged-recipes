@@ -1,0 +1,61 @@
+{% set name = "perl-file-sharedir-install" %}
+{% set version = "0.13" %}
+{% set sha256 = "45befdf0d95cbefe7c25a1daf293d85f780d6d2576146546e6828aad26e580f9" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: File-ShareDir-Install-0.13.tar.gz
+  url: https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-ShareDir-Install-0.13.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-io-dir
+    #- perl-strict
+    #- perl-file-spec
+    #- perl-extutils-makemaker
+    #- perl-test-more
+    #- perl-file-path
+    #- perl-exporter
+    #- perl-carp
+    #- perl-warnings
+
+  run:
+    - perl
+    #- perl-io-dir
+    #- perl-carp
+    #- perl-file-spec
+    #- perl-exporter
+    #- perl-strict
+    #- perl-warnings
+
+test:
+  # Perl 'use' tests
+  imports:
+    - File::ShareDir::Install
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/Perl-Toolchain-Gang/File-ShareDir-Install
+  license: perl_5
+  summary: 'Install shared files'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: File::ShareDir::Install
+  cpan_module: File::ShareDir::Install
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

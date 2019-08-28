@@ -1,0 +1,59 @@
+{% set name = "perl-sub-uplevel" %}
+{% set version = "0.2800" %}
+{% set sha256 = "b4f3f63b80f680a421332d8851ddbe5a8e72fcaa74d5d1d98f3c8cc4a3ece293" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Sub-Uplevel-0.2800.tar.gz
+  url: https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Sub-Uplevel-0.2800.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-strict
+    #- perl-file-spec
+    #- perl-extutils-makemaker
+    #- perl-lib
+    #- perl-test-more
+    #- perl-exporter
+    #- perl-carp
+    #- perl-warnings
+    #- perl-constant
+
+  run:
+    - perl
+    #- perl-carp
+    #- perl-strict
+    #- perl-warnings
+    #- perl-constant
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Sub::Uplevel
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/Perl-Toolchain-Gang/Sub-Uplevel
+  license: perl_5
+  summary: 'apparently run a function in a higher stack frame'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Sub::Uplevel
+  cpan_module: Sub::Uplevel
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

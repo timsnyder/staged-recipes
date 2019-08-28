@@ -10,6 +10,8 @@ source:
   fn: pmtools-2.2.0.tar.gz
   url: https://cpan.metacpan.org/authors/id/M/ML/MLFISHER/pmtools-2.2.0.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - t_pfcat_5.26.patch
 
 # If this is a new build for the same version, increment the build
 # number. If you do not include this key, it defaults to 0.
@@ -28,6 +30,10 @@ test:
   # Perl 'use' tests
   imports:
     - pmtools
+    - Devel::Loaded
+  commands:
+    - pmpath Config
+    - podpath Config
 
   # You can also put a file called run_test.pl (or run_test.py) in the recipe
   # that will be run at test time.

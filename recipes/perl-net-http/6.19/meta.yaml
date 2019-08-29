@@ -20,6 +20,7 @@ requirements:
   host:
     - perl
     - perl-uri
+    - perl-io-socket-ssl
     #- perl-test-more
     #- perl-data-dumper
     #- perl-socket
@@ -38,6 +39,7 @@ requirements:
   run:
     - perl
     - perl-uri
+    - perl-io-socket-ssl
     #- perl-io-uncompress-gunzip
     #- perl-carp
     #- perl-io-socket-inet

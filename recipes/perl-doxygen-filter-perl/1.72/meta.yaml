@@ -20,7 +20,6 @@ requirements:
   host:
     - perl
     - perl-pod-pom
-    - perl-pod-pom-view-html
     - perl-test-output
     - perl-log-log4perl 1.46
     #- perl-extutils-makemaker
@@ -29,7 +28,6 @@ requirements:
   run:
     - perl
     - perl-pod-pom
-    - perl-pod-pom-view-html
     - perl-test-output
     - perl-log-log4perl 1.46
     #- perl-test-more

@@ -19,7 +19,7 @@ build:
 requirements:
   host:
     - perl
-    - perl-net-https
+    - perl-net-http
     - perl-lwp-useragent
     - perl-test-requiresinternet
     - perl-io-socket-ssl
@@ -29,7 +29,7 @@ requirements:
 
   run:
     - perl
-    - perl-net-https
+    - perl-net-http
     - perl-lwp-useragent
     - perl-mozilla-ca
     - perl-io-socket-ssl

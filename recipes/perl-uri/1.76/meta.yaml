@@ -1,0 +1,125 @@
+{% set name = "perl-uri" %}
+{% set version = "1.76" %}
+{% set sha256 = "b2c98e1d50d6f572483ee538a6f4ccc8d9185f91f0073fd8af7390898254413e" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: URI-1.76.tar.gz
+  url: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-1.76.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-test-needs
+    #- perl-test-more
+    #- perl-overload
+    #- perl-file-spec
+    #- perl-utf8
+    #- perl-mime-base64
+    #- perl-carp
+    #- perl-integer
+    #- perl-exporter
+    #- perl-net-domain
+    #- perl-strict
+    #- perl-extutils-makemaker
+    #- perl-scalar-util
+    #- perl-file-temp
+    #- perl-parent
+    #- perl-data-dumper
+    #- perl-cwd
+    #- perl-constant
+    #- perl-encode
+    #- perl-warnings
+    #- perl-file-spec-functions
+    #- perl-test
+
+  run:
+    - perl
+    #- perl-parent
+    #- perl-overload
+    #- perl-data-dumper
+    #- perl-cwd
+    #- perl-utf8
+    #- perl-mime-base64
+    #- perl-constant
+    #- perl-carp
+    #- perl-encode
+    #- perl-warnings
+    #- perl-integer
+    #- perl-exporter
+    #- perl-net-domain
+    #- perl-strict
+    #- perl-scalar-util
+
+test:
+  # Perl 'use' tests
+  imports:
+    - URI
+    - URI::Escape
+    - URI::Heuristic
+    - URI::IRI
+    - URI::QueryParam
+    - URI::Split
+    - URI::URL
+    - URI::WithBase
+    - URI::data
+    - URI::file
+    - URI::file::Base
+    - URI::file::FAT
+    - URI::file::Mac
+    - URI::file::OS2
+    - URI::file::QNX
+    - URI::file::Unix
+    - URI::file::Win32
+    - URI::ftp
+    - URI::gopher
+    - URI::http
+    - URI::https
+    - URI::ldap
+    - URI::ldapi
+    - URI::ldaps
+    - URI::mailto
+    - URI::mms
+    - URI::news
+    - URI::nntp
+    - URI::pop
+    - URI::rlogin
+    - URI::rsync
+    - URI::rtsp
+    - URI::rtspu
+    - URI::sftp
+    - URI::sip
+    - URI::sips
+    - URI::snews
+    - URI::ssh
+    - URI::telnet
+    - URI::tn3270
+    - URI::urn
+    - URI::urn::isbn
+    - URI::urn::oid
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/libwww-perl/URI
+  license: perl_5
+  summary: 'Uniform Resource Identifiers (absolute and relative)'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: URI
+  cpan_module: URI
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

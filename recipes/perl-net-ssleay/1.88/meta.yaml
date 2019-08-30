@@ -10,11 +10,14 @@ source:
   fn: Net-SSLeay-1.88.tar.gz
   url: https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.88.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - only_local_tests.patch
 
 # If this is a new build for the same version, increment the build
 # number. If you do not include this key, it defaults to 0.
 build:
   number: 0
+  skip: True [win]
 
 requirements:
   build:
@@ -24,9 +27,11 @@ requirements:
     #- perl-test-more
     #- perl-mime-base64
     - {{ compiler('c') }}
+    - openssl
 
   run:
     - perl
+    - openssl
     #- perl-mime-base64
 
 test:

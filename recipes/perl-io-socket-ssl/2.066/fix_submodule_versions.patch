@@ -1,0 +1,26 @@
+diff --git a/lib/IO/Socket/SSL/Intercept.pm b/lib/IO/Socket/SSL/Intercept.pm
+index 4177cb9cf..60798b99f 100644
+--- a/lib/IO/Socket/SSL/Intercept.pm
++++ b/lib/IO/Socket/SSL/Intercept.pm
+@@ -6,7 +6,7 @@ use Carp 'croak';
+ use IO::Socket::SSL::Utils;
+ use Net::SSLeay;
+ 
+-our $VERSION = '2.056';
++our $VERSION = '2.066';
+ 
+ 
+ sub new {
+diff --git a/lib/IO/Socket/SSL/Utils.pm b/lib/IO/Socket/SSL/Utils.pm
+index 9a766cecb..199282ec8 100644
+--- a/lib/IO/Socket/SSL/Utils.pm
++++ b/lib/IO/Socket/SSL/Utils.pm
+@@ -9,7 +9,7 @@ use Net::SSLeay;
+ require Exporter;
+ *import = \&Exporter::import;
+ 
+-our $VERSION = '2.014';
++our $VERSION = '2.066';
+ our @EXPORT = qw(
+     PEM_file2cert PEM_string2cert PEM_cert2file PEM_cert2string
+     PEM_file2key PEM_string2key PEM_key2file PEM_key2string

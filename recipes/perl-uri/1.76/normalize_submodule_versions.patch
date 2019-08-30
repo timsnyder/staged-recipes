@@ -1,0 +1,65 @@
+diff --git a/lib/URI/Escape.pm b/lib/URI/Escape.pm
+index f9392d446..13b863c97 100644
+--- a/lib/URI/Escape.pm
++++ b/lib/URI/Escape.pm
+@@ -141,7 +141,7 @@ use Exporter 5.57 'import';
+ our %escapes;
+ our @EXPORT = qw(uri_escape uri_unescape uri_escape_utf8);
+ our @EXPORT_OK = qw(%escapes);
+-our $VERSION = "3.31";
++our $VERSION = "1.76";
+ 
+ use Carp ();
+ 
+diff --git a/lib/URI/Heuristic.pm b/lib/URI/Heuristic.pm
+index d4ace3437..677ae538c 100644
+--- a/lib/URI/Heuristic.pm
++++ b/lib/URI/Heuristic.pm
+@@ -91,7 +91,7 @@ use warnings;
+ 
+ use Exporter 5.57 'import';
+ our @EXPORT_OK = qw(uf_uri uf_uristr uf_url uf_urlstr);
+-our $VERSION = "4.20";
++our $VERSION = "1.76";
+ 
+ our ($MY_COUNTRY, $DEBUG);
+ 
+diff --git a/lib/URI/URL.pm b/lib/URI/URL.pm
+index ba05ecaeb..731518caa 100644
+--- a/lib/URI/URL.pm
++++ b/lib/URI/URL.pm
+@@ -5,7 +5,7 @@ use warnings;
+ 
+ use parent 'URI::WithBase';
+ 
+-our $VERSION = "5.04";
++our $VERSION = "1.76";
+ 
+ # Provide as much as possible of the old URI::URL interface for backwards
+ # compatibility...
+diff --git a/lib/URI/WithBase.pm b/lib/URI/WithBase.pm
+index 943b7b533..6e99b989f 100644
+--- a/lib/URI/WithBase.pm
++++ b/lib/URI/WithBase.pm
+@@ -6,7 +6,7 @@ use warnings;
+ use URI;
+ use Scalar::Util 'blessed';
+ 
+-our $VERSION = "2.20";
++our $VERSION = "1.76";
+ 
+ use overload '""' => "as_string", fallback => 1;
+ 
+diff --git a/lib/URI/file.pm b/lib/URI/file.pm
+index d76ddf2b5..52ba8a75d 100644
+--- a/lib/URI/file.pm
++++ b/lib/URI/file.pm
+@@ -4,7 +4,7 @@ use strict;
+ use warnings;
+ 
+ use parent 'URI::_generic';
+-our $VERSION = "4.21";
++our $VERSION = "1.76";
+ 
+ use URI::Escape qw(uri_unescape);
+ 

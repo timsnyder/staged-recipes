@@ -20,6 +20,7 @@ requirements:
   host:
     - perl
     - perl-test-needs
+    - perl-business-isbn
     #- perl-test-more
     #- perl-overload
     #- perl-file-spec
@@ -44,6 +45,7 @@ requirements:
 
   run:
     - perl
+    - perl-business-isbn
     #- perl-parent
     #- perl-overload
     #- perl-data-dumper

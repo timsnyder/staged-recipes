@@ -1,0 +1,54 @@
+{% set name = "perl-business-isbn-data" %}
+{% set version = "20140910.003" %}
+{% set sha256 = "c756048c9b2b76ae5a7b9f1e1f6c59af670ff89b1fa574d4c3d7e4c9659685c9" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Business-ISBN-Data-20140910.003.tar.gz
+  url: https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISBN-Data-20140910.003.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-file-basename
+    #- perl-test-more
+    #- perl-carp
+    #- perl-file-spec-functions
+    #- perl-extutils-makemaker
+
+  run:
+    - perl
+    #- perl-file-basename
+    #- perl-file-spec-functions
+    #- perl-carp
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Business::ISBN::Data
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/briandfoy/business-isbn-data
+  license: perl_5
+  summary: 'data pack for Business::ISBN'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Business::ISBN::Data
+  cpan_module: Business::ISBN::Data
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

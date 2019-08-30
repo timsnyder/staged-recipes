@@ -1,0 +1,53 @@
+{% set name = "perl-business-isbn" %}
+{% set version = "3.004" %}
+{% set sha256 = "31754acd57bf0c3d4762003d784bce4a0af6832a725336e219fb2988b6fb831e" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Business-ISBN-3.004.tar.gz
+  url: https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISBN-3.004.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-business-isbn-data
+    #- perl-file-spec-functions
+    #- perl-test-more
+    #- perl-extutils-makemaker
+
+  run:
+    - perl
+    - perl-business-isbn-data
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Business::ISBN
+    - Business::ISBN10
+    - Business::ISBN13
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/briandfoy/business-isbn
+  license: artistic_2
+  summary: 'work with International Standard Book Numbers'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Business::ISBN
+  cpan_module: Business::ISBN
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

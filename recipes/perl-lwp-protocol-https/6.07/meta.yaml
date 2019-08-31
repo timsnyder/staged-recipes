@@ -20,7 +20,7 @@ requirements:
   host:
     - perl
     - perl-net-http
-    - perl-lwp-useragent
+    - perl-libwww-perl
     - perl-test-requiresinternet
     - perl-io-socket-ssl
     - perl-mozilla-ca
@@ -30,7 +30,7 @@ requirements:
   run:
     - perl
     - perl-net-http
-    - perl-lwp-useragent
+    - perl-libwww-perl
     - perl-mozilla-ca
     - perl-io-socket-ssl
 

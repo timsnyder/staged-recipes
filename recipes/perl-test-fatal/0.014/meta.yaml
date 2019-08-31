@@ -1,0 +1,63 @@
+{% set name = "perl-test-fatal" %}
+{% set version = "0.014" %}
+{% set sha256 = "bcdcef5c7b2790a187ebca810b0a08221a63256062cfab3c3b98685d91d1cbb0" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Test-Fatal-0.014.tar.gz
+  url: https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.014.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-try-tiny
+    #- perl-exporter
+    #- perl-test-builder-tester
+    #- perl-overload
+    #- perl-file-spec
+    #- perl-strict
+    #- perl-extutils-makemaker
+    #- perl-warnings
+    #- perl-carp
+    #- perl-test-builder
+    #- perl-test-more
+
+  run:
+    - perl
+    - perl-try-tiny
+    #- perl-exporter
+    #- perl-strict
+    #- perl-warnings
+    #- perl-test-builder
+    #- perl-carp
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Test::Fatal
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/rjbs/Test-Fatal
+  license: perl_5
+  summary: 'incredibly simple helpers for testing code with exceptions'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Test::Fatal
+  cpan_module: Test::Fatal
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

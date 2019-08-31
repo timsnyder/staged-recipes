@@ -1,0 +1,47 @@
+{% set name = "perl-html-entities" %}
+{% set version = "3.72" %}
+{% set sha256 = "ec28c7e1d9e67c45eca197077f7cdc41ead1bb4c538c7f02a3296a4bb92f608b" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: HTML-Parser-3.72.tar.gz
+  url: https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTML-Parser-3.72.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  build:
+  host:
+    - perl
+    - {{ compiler('c') }}
+
+  run:
+    - perl
+
+# test:
+  # Perl 'use' tests
+  # imports:
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/HTML::Entities
+  license: perl_5
+  summary: 'Encode or decode strings with HTML entities'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: HTML::Entities
+  cpan_module: HTML::Entities
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

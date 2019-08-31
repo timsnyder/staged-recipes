@@ -1,0 +1,52 @@
+{% set name = "perl-encode-locale" %}
+{% set version = "1.05" %}
+{% set sha256 = "176fa02771f542a4efb1dbc2a4c928e8f4391bf4078473bd6040d8f11adb0ec1" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Encode-Locale-1.05.tar.gz
+  url: https://cpan.metacpan.org/authors/id/G/GA/GAAS/Encode-Locale-1.05.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-encode-alias
+    #- perl-extutils-makemaker
+    #- perl-encode
+    #- perl-test-more
+
+  run:
+    - perl
+    #- perl-encode-alias
+    #- perl-encode
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Encode::Locale
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/Encode::Locale
+  license: perl_5
+  summary: 'Determine the locale encoding'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Encode::Locale
+  cpan_module: Encode::Locale
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

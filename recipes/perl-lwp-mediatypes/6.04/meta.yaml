@@ -1,0 +1,62 @@
+{% set name = "perl-lwp-mediatypes" %}
+{% set version = "6.04" %}
+{% set sha256 = "8f1bca12dab16a1c2a7c03a49c5e58cce41a6fec9519f0aadfba8dad997919d9" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: LWP-MediaTypes-6.04.tar.gz
+  url: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-MediaTypes-6.04.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-test-fatal
+    #- perl-file-basename
+    #- perl-exporter
+    #- perl-scalar-util
+    #- perl-overload
+    #- perl-file-spec
+    #- perl-strict
+    #- perl-warnings
+    #- perl-extutils-makemaker
+    #- perl-carp
+    #- perl-test-more
+
+  run:
+    - perl
+    #- perl-file-basename
+    #- perl-exporter
+    #- perl-scalar-util
+    #- perl-strict
+    #- perl-carp
+
+test:
+  # Perl 'use' tests
+  imports:
+    - LWP::MediaTypes
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/libwww-perl/lwp-mediatypes
+  license: perl_5
+  summary: 'guess media type for a file or a URL'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: LWP::MediaTypes
+  cpan_module: LWP::MediaTypes
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

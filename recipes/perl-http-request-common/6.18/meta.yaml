@@ -1,14 +1,14 @@
-{% set name = "perl-lwp-useragent" %}
-{% set version = "6.39" %}
-{% set sha256 = "9a8d7747938aa75d7d524c71574ae7f99ca66a5dac8255a7f7759f373e7774d5" %}
+{% set name = "perl-http-request-common" %}
+{% set version = "6.18" %}
+{% set sha256 = "d060d170d388b694c58c14f4d13ed908a2807f0e581146cef45726641d809112" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: libwww-perl-6.39.tar.gz
-  url: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.39.tar.gz
+  fn: HTTP-Message-6.18.tar.gz
+  url: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz
   sha256: {{ sha256 }}
 
 # If this is a new build for the same version, increment the build
@@ -31,14 +31,14 @@ requirements:
   # that will be run at test time.
 
 about:
-  home: http://metacpan.org/pod/LWP::UserAgent
+  home: http://metacpan.org/pod/HTTP::Request::Common
   license: perl_5
-  summary: 'Web user agent class'
+  summary: 'Construct common HTTP::Request objects'
 
 extra:
   # these store the original arguments conda-skeleton was run with
-  cpan_distribution: LWP::UserAgent
-  cpan_module: LWP::UserAgent
+  cpan_distribution: HTTP::Request::Common
+  cpan_module: HTTP::Request::Common
 
 # See
 # https://docs.conda.io/projects/conda-build for

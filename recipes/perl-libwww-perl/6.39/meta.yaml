@@ -21,8 +21,7 @@ requirements:
     - perl
     - perl-lwp-mediatypes
     - perl-http-date
-    - perl-html-entities
-    - perl-html-headparser
+    - perl-html-parser
     - perl-test-fatal
     - perl-http-message
     - perl-test-requiresinternet
@@ -61,9 +60,8 @@ requirements:
     - perl-http-cookies
     - perl-http-date
     - perl-lwp-mediatypes
-    - perl-html-entities
+    - perl-html-parser
     - perl-encode-locale
-    - perl-html-headparser
     - perl-http-message
     - perl-net-http
     - perl-http-daemon

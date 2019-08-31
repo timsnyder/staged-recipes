@@ -20,10 +20,8 @@ requirements:
   host:
     - perl
     - perl-http-date
-    - perl-http-response
     - perl-uri
-    - perl-http-headers-util
-    - perl-http-request
+    - perl-http-message
     #- perl-locale
     #- perl-vars
     #- perl-file-spec
@@ -38,8 +36,7 @@ requirements:
   run:
     - perl
     - perl-http-date
-    - perl-http-request
-    - perl-http-headers-util
+    - perl-http-message
     #- perl-locale
     #- perl-vars
     #- perl-strict

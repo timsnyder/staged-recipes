@@ -1,0 +1,105 @@
+{% set name = "perl-http-message" %}
+{% set version = "6.18" %}
+{% set sha256 = "d060d170d388b694c58c14f4d13ed908a2807f0e581146cef45726641d809112" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: HTTP-Message-6.18.tar.gz
+  url: https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-http-date
+    - perl-try-tiny
+    - perl-encode-locale
+    - perl-lwp-mediatypes
+    - perl-uri
+    - perl-io-html
+    #- perl-perlio-encoding
+    #- perl-extutils-makemaker
+    #- perl-io-uncompress-gunzip
+    #- perl-warnings
+    #- perl-mime-base64
+    #- perl-base
+    #- perl-strict
+    #- perl-encode
+    #- perl-io-compress-bzip2
+    #- perl-io-compress-deflate
+    #- perl-storable
+    #- perl-compress-raw-zlib
+    #- perl-io-compress-gzip
+    #- perl-io-uncompress-inflate
+    #- perl-io-uncompress-rawinflate
+    #- perl-carp
+    #- perl-test-more
+    #- perl-io-uncompress-bunzip2
+    #- perl-mime-quotedprint
+    #- perl-time-local
+    #- perl-exporter
+    #- perl-file-spec
+
+  run:
+    - perl
+    - perl-uri
+    - perl-http-date
+    - perl-encode-locale
+    - perl-lwp-mediatypes
+    - perl-io-html
+    #- perl-io-uncompress-gunzip
+    #- perl-warnings
+    #- perl-carp
+    #- perl-mime-base64
+    #- perl-strict
+    #- perl-encode
+    #- perl-io-compress-bzip2
+    #- perl-io-compress-deflate
+    #- perl-storable
+    #- perl-io-uncompress-bunzip2
+    #- perl-mime-quotedprint
+    #- perl-compress-raw-zlib
+    #- perl-io-compress-gzip
+    #- perl-io-uncompress-inflate
+    #- perl-exporter
+    #- perl-io-uncompress-rawinflate
+    #- perl-base
+
+test:
+  # Perl 'use' tests
+  imports:
+    - HTTP::Config
+    - HTTP::Headers
+    - HTTP::Headers::Auth
+    - HTTP::Headers::ETag
+    - HTTP::Headers::Util
+    - HTTP::Message
+    - HTTP::Request
+    - HTTP::Request::Common
+    - HTTP::Response
+    - HTTP::Status
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/libwww-perl/HTTP-Message
+  license: perl_5
+  summary: 'HTTP style message (base class)'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: HTTP-Message
+  cpan_module: HTTP-Message
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

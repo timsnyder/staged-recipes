@@ -24,12 +24,10 @@ requirements:
     - perl-html-entities
     - perl-html-headparser
     - perl-test-fatal
-    - perl-http-request
+    - perl-http-message
     - perl-test-requiresinternet
     - perl-www-robotrules
     - perl-file-listing
-    - perl-http-request-common
-    - perl-http-response
     - perl-uri
     - perl-http-negotiate
     - perl-http-cookies
@@ -37,7 +35,6 @@ requirements:
     - perl-test-needs
     - perl-net-http
     - perl-http-daemon
-    - perl-http-status
     - perl-uri-escape
     - perl-try-tiny
     #- perl-io-socket
@@ -67,16 +64,13 @@ requirements:
     - perl-html-entities
     - perl-encode-locale
     - perl-html-headparser
-    - perl-http-request
+    - perl-http-message
     - perl-net-http
     - perl-http-daemon
     - perl-www-robotrules
     - perl-file-listing
-    - perl-http-status
-    - perl-http-request-common
     - perl-uri
     - perl-http-negotiate
-    - perl-http-response
     - perl-uri-escape
     - perl-try-tiny
     #- perl-io-socket

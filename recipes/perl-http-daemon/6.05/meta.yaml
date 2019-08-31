@@ -21,11 +21,9 @@ requirements:
     - perl
     - perl-lwp-mediatypes
     - perl-http-date
-    - perl-http-request
+    - perl-http-message
     - perl-test-needs
     - perl-module-build-tiny
-    - perl-http-status
-    - perl-http-response
     - perl-uri
     #- perl-socket
     #- perl-sys-hostname
@@ -43,9 +41,7 @@ requirements:
     - perl
     - perl-lwp-mediatypes
     - perl-http-date
-    - perl-http-request
-    - perl-http-status
-    - perl-http-response
+    - perl-http-message
     #- perl-socket
     #- perl-strict
     #- perl-warnings

@@ -19,8 +19,7 @@ build:
 requirements:
   host:
     - perl
-    - perl-ppi-dumper
-    - perl-ppi-document
+    - perl-ppi
     #- perl-constant
     #- perl-base
     #- perl-carp
@@ -34,8 +33,7 @@ requirements:
 
   run:
     - perl
-    - perl-ppi-dumper
-    - perl-ppi-document
+    - perl-ppi
     #- perl-base
     #- perl-strict
     #- perl-list-util

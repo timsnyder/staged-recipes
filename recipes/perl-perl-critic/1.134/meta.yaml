@@ -28,17 +28,12 @@ requirements:
     - perl-ppix-quotelike
     - perl-config-tiny
     - perl-b-keywords
-    - perl-ppi-node
-    - perl-ppi-token-whitespace
     - perl-task-weaken
-    - perl-ppi-document-file
     - perl-file-which
     - perl-test-deep
     - perl-string-format
     - perl-readonly
     - perl-ppix-regexp
-    - perl-ppi-document
-    - perl-ppi-token-quote-single
     - perl-ppix-utilities-node
     - perl-perl-tidy
     #- perl-base
@@ -77,14 +72,10 @@ requirements:
     - perl
     - perl-pod-spell
     - perl-config-tiny
-    - perl-ppi-token-whitespace
     - perl-task-weaken
-    - perl-ppi-document-file
     - perl-file-which
     - perl-string-format
     - perl-ppix-regexp
-    - perl-ppi-document
-    - perl-ppi-token-quote-single
     - perl-exception-class
     - perl-ppix-utilities-node
     - perl-list-moreutils
@@ -93,7 +84,6 @@ requirements:
     - perl-ppi
     - perl-ppix-quotelike
     - perl-b-keywords
-    - perl-ppi-node
     - perl-readonly
     - perl-perl-tidy
     #- perl-base

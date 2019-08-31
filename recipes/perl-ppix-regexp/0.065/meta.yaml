@@ -21,7 +21,7 @@ requirements:
     - perl
     - perl-list-moreutils
     - perl-task-weaken
-    - perl-ppi-document
+    - perl-ppi
     #- perl-base
     #- perl-strict
     #- perl-list-util
@@ -37,7 +37,7 @@ requirements:
     - perl
     - perl-list-moreutils
     - perl-task-weaken
-    - perl-ppi-document
+    - perl-ppi
     #- perl-constant
     #- perl-base
     #- perl-carp

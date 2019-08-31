@@ -37,6 +37,7 @@ requirements:
     - perl
     - perl-http-date
     - perl-http-message
+    - perl-win32 [win]
     #- perl-locale
     #- perl-vars
     #- perl-strict
@@ -47,7 +48,7 @@ test:
   # Perl 'use' tests
   imports:
     - HTTP::Cookies
-    - HTTP::Cookies::Microsoft
+    - HTTP::Cookies::Microsoft [win]
     - HTTP::Cookies::Netscape
 
   # You can also put a file called run_test.pl (or run_test.py) in the recipe

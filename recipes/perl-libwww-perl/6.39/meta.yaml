@@ -34,7 +34,6 @@ requirements:
     - perl-test-needs
     - perl-net-http
     - perl-http-daemon
-    - perl-uri-escape
     - perl-try-tiny
     #- perl-io-socket
     #- perl-encode
@@ -69,7 +68,6 @@ requirements:
     - perl-file-listing
     - perl-uri
     - perl-http-negotiate
-    - perl-uri-escape
     - perl-try-tiny
     #- perl-io-socket
     #- perl-encode

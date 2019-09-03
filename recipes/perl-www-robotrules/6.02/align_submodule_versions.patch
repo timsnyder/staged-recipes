@@ -1,0 +1,13 @@
+diff --git a/lib/WWW/RobotRules/AnyDBM_File.pm b/lib/WWW/RobotRules/AnyDBM_File.pm
+index 8daa68870..d95995bf0 100644
+--- a/lib/WWW/RobotRules/AnyDBM_File.pm
++++ b/lib/WWW/RobotRules/AnyDBM_File.pm
+@@ -2,7 +2,7 @@ package WWW::RobotRules::AnyDBM_File;
+ 
+ require  WWW::RobotRules;
+ @ISA = qw(WWW::RobotRules);
+-$VERSION = "6.00";
++$VERSION = "6.02";
+ 
+ use Carp ();
+ use AnyDBM_File;

@@ -23,7 +23,7 @@ requirements:
     - perl-exception-class
     - perl-pod-spell
     - perl-io-string
-    - perl-ppix-utilities-statement
+    - perl-ppix-utilities
     - perl-ppi
     - perl-ppix-quotelike
     - perl-config-tiny
@@ -34,7 +34,6 @@ requirements:
     - perl-string-format
     - perl-readonly
     - perl-ppix-regexp
-    - perl-ppix-utilities-node
     - perl-perl-tidy
     #- perl-base
     #- perl-file-spec-unix
@@ -77,10 +76,9 @@ requirements:
     - perl-string-format
     - perl-ppix-regexp
     - perl-exception-class
-    - perl-ppix-utilities-node
+    - perl-ppix-utilities
     - perl-list-moreutils
     - perl-io-string
-    - perl-ppix-utilities-statement
     - perl-ppi
     - perl-ppix-quotelike
     - perl-b-keywords

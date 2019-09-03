@@ -1,0 +1,75 @@
+{% set name = "perl-ppix-utilities" %}
+{% set version = "1.001000" %}
+{% set sha256 = "03a483386fd6a2c808f09778d44db06b02c3140fb24ba4bf12f851f46d3bcb9b" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: PPIx-Utilities-1.001000.tar.gz
+  url: https://cpan.metacpan.org/authors/id/E/EL/ELLIOTJS/PPIx-Utilities-1.001000.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-exception-class
+    - perl-task-weaken
+    - perl-readonly
+    - perl-ppi-document
+    - perl-ppi-dumper
+    - perl-ppi
+    - perl-test-deep
+    - perl-ppi-document-fragment
+    - perl-module-build
+    #- perl-exporter
+    #- perl-test-more
+    #- perl-data-dumper
+    #- perl-base
+    #- perl-warnings
+    #- perl-scalar-util
+    #- perl-strict
+
+  run:
+    - perl
+    - perl-exception-class
+    - perl-task-weaken
+    - perl-readonly
+    - perl-ppi
+    - perl-ppi-document-fragment
+    #- perl-strict
+    #- perl-warnings
+    #- perl-exporter
+    #- perl-base
+    #- perl-scalar-util
+
+test:
+  # Perl 'use' tests
+  imports:
+    - PPIx::Utilities
+    - PPIx::Utilities::Exception::Bug
+    - PPIx::Utilities::Node
+    - PPIx::Utilities::Statement
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/PPIx-Utilities
+  license: perl_5
+  summary: 'Extensions to PPI.'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: PPIx-Utilities
+  cpan_module: PPIx-Utilities
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

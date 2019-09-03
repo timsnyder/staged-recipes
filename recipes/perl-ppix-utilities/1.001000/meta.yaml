@@ -22,11 +22,8 @@ requirements:
     - perl-exception-class
     - perl-task-weaken
     - perl-readonly
-    - perl-ppi-document
-    - perl-ppi-dumper
     - perl-ppi
     - perl-test-deep
-    - perl-ppi-document-fragment
     - perl-module-build
     #- perl-exporter
     #- perl-test-more
@@ -42,7 +39,6 @@ requirements:
     - perl-task-weaken
     - perl-readonly
     - perl-ppi
-    - perl-ppi-document-fragment
     #- perl-strict
     #- perl-warnings
     #- perl-exporter

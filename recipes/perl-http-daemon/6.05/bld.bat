@@ -6,7 +6,7 @@ IF exist Build.PL (
     IF %ERRORLEVEL% NEQ 0 exit 1
     Build test
     :: Make sure this goes in site
-    Build pure_install --installdirs site
+    Build install --installdirs site
     IF %ERRORLEVEL% NEQ 0 exit 1
 ) ELSE IF exist Makefile.PL (
     :: Make sure this goes in site

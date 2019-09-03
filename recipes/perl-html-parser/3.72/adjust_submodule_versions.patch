@@ -1,0 +1,65 @@
+diff --git a/lib/HTML/Entities.pm b/lib/HTML/Entities.pm
+index ecd8e0d31..d7146c1c1 100644
+--- a/lib/HTML/Entities.pm
++++ b/lib/HTML/Entities.pm
+@@ -146,7 +146,7 @@ require Exporter;
+ @EXPORT = qw(encode_entities decode_entities _decode_entities);
+ @EXPORT_OK = qw(%entity2char %char2entity encode_entities_numeric);
+ 
+-$VERSION = "3.69";
++$VERSION = "3.72";
+ sub Version { $VERSION; }
+ 
+ require HTML::Parser;  # for fast XS implemented decode_entities
+diff --git a/lib/HTML/HeadParser.pm b/lib/HTML/HeadParser.pm
+index 28e9cacc4..6f3e63da3 100644
+--- a/lib/HTML/HeadParser.pm
++++ b/lib/HTML/HeadParser.pm
+@@ -91,7 +91,7 @@ use HTML::Entities ();
+ use strict;
+ use vars qw($VERSION $DEBUG);
+ #$DEBUG = 1;
+-$VERSION = "3.71";
++$VERSION = "3.72";
+ 
+ =item $hp = HTML::HeadParser->new
+ 
+diff --git a/lib/HTML/LinkExtor.pm b/lib/HTML/LinkExtor.pm
+index c2f08c62d..5d46dd9a0 100644
+--- a/lib/HTML/LinkExtor.pm
++++ b/lib/HTML/LinkExtor.pm
+@@ -2,7 +2,7 @@ package HTML::LinkExtor;
+ 
+ require HTML::Parser;
+ @ISA = qw(HTML::Parser);
+-$VERSION = "3.69";
++$VERSION = "3.72";
+ 
+ =head1 NAME
+ 
+diff --git a/lib/HTML/PullParser.pm b/lib/HTML/PullParser.pm
+index 308337932..de6edc73a 100644
+--- a/lib/HTML/PullParser.pm
++++ b/lib/HTML/PullParser.pm
+@@ -2,7 +2,7 @@ package HTML::PullParser;
+ 
+ require HTML::Parser;
+ @ISA=qw(HTML::Parser);
+-$VERSION = "3.57";
++$VERSION = "3.72";
+ 
+ use strict;
+ use Carp ();
+diff --git a/lib/HTML/TokeParser.pm b/lib/HTML/TokeParser.pm
+index 959b96f6a..be2436389 100644
+--- a/lib/HTML/TokeParser.pm
++++ b/lib/HTML/TokeParser.pm
+@@ -2,7 +2,7 @@ package HTML::TokeParser;
+ 
+ require HTML::PullParser;
+ @ISA=qw(HTML::PullParser);
+-$VERSION = "3.69";
++$VERSION = "3.72";
+ 
+ use strict;
+ use Carp ();

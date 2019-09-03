@@ -27,7 +27,7 @@ requirements:
     #- perl-list-util
     #- perl-test-more
     #- perl-scalar-util
-    #- perl-module-build
+    - perl-module-build
     #- perl-carp
     #- perl-warnings
     #- perl-constant

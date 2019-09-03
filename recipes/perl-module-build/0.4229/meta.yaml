@@ -1,0 +1,109 @@
+{% set name = "perl-module-build" %}
+{% set version = "0.4229" %}
+{% set sha256 = "1fe491a6cda914b01bc8e592faa2b5404e9f35915ca15322f8f2a8d8f9008c18" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Module-Build-0.4229.tar.gz
+  url: https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4229.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-pod-man
+    #- perl-test-more
+    #- perl-cpan-meta-yaml
+    #- perl-module-metadata
+    #- perl-extutils-parsexs
+    #- perl-perl-ostype
+    #- perl-extutils-install
+    #- perl-file-find
+    #- perl-getopt-long
+    #- perl-extutils-makemaker
+    #- perl-file-temp
+    #- perl-extutils-manifest
+    #- perl-cpan-meta
+    #- perl-file-spec
+    #- perl-data-dumper
+    #- perl-text-abbrev
+    #- perl-text-parsewords
+    #- perl-cwd
+    #- perl-file-copy
+    #- perl-file-path
+    #- perl-extutils-cbuilder
+    #- perl-test-harness
+    #- perl-file-basename
+    #- perl-version
+
+  run:
+    - perl
+    #- perl-pod-man
+    #- perl-module-metadata
+    #- perl-extutils-parsexs
+    #- perl-perl-ostype
+    #- perl-extutils-install
+    #- perl-file-find
+    #- perl-getopt-long
+    #- perl-extutils-makemaker
+    #- perl-extutils-manifest
+    #- perl-cpan-meta
+    #- perl-file-spec
+    #- perl-data-dumper
+    #- perl-text-abbrev
+    #- perl-text-parsewords
+    #- perl-cwd
+    #- perl-file-copy
+    #- perl-file-path
+    #- perl-extutils-cbuilder
+    #- perl-test-harness
+    #- perl-file-basename
+    #- perl-version
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Module::Build
+    - Module::Build::Base
+    - Module::Build::Compat
+    - Module::Build::Config
+    - Module::Build::Cookbook
+    - Module::Build::Dumper
+    - Module::Build::Notes
+    - Module::Build::PPMMaker
+    - Module::Build::Platform::Default
+    - Module::Build::Platform::MacOS
+    - Module::Build::Platform::Unix
+    - Module::Build::Platform::VMS
+    - Module::Build::Platform::VOS
+    - Module::Build::Platform::Windows
+    - Module::Build::Platform::aix
+    - Module::Build::Platform::cygwin
+    - Module::Build::Platform::darwin
+    - Module::Build::Platform::os2
+    - Module::Build::PodParser
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/Module-Build
+  license: perl_5
+  summary: 'Build and install Perl modules'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Module-Build
+  cpan_module: Module-Build
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

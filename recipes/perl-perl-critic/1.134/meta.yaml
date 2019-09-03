@@ -56,7 +56,7 @@ requirements:
     #- perl-lib
     #- perl-version
     #- perl-getopt-long
-    #- perl-module-build
+    - perl-module-build
     #- perl-strict
     #- perl-carp
     #- perl-file-basename

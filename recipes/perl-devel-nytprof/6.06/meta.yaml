@@ -10,6 +10,8 @@ source:
   fn: Devel-NYTProf-6.06.tar.gz
   url: https://cpan.metacpan.org/authors/id/T/TI/TIMB/Devel-NYTProf-6.06.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - rm_exporter_line_from_test62-subcaller1_rdt.patch
 
 # If this is a new build for the same version, increment the build
 # number. If you do not include this key, it defaults to 0.

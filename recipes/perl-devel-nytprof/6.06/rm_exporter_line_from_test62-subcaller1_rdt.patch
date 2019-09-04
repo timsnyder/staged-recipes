@@ -1,0 +1,12 @@
+diff --git a/t/test62-subcaller1.rdt b/t/test62-subcaller1.rdt
+index 1abd3602f..9fdac5db0 100644
+--- a/t/test62-subcaller1.rdt
++++ b/t/test62-subcaller1.rdt
+@@ -53,7 +53,6 @@ fid_fileinfo	1	call	24	main::CORE:substcont	[ 3 0 0 0 0 0 0 main::RUNTIME ]
+ fid_fileinfo	1	call	24	main::sub4	[ 2 0 0 0 0 0 0 main::RUNTIME ]
+ fid_fileinfo	2	[ Devel/NYTProf/Test.pm   2 2 0 0 ]
+ fid_fileinfo	2	sub	Devel::NYTProf::Test::example_sub	13-13
+-fid_fileinfo	3	[ Exporter.pm   3 2 0 0 ]
+ fid_line_time	1	4	[ 0 1 ]
+ fid_line_time	1	5	[ 0 2 ]
+ fid_line_time	1	9	[ 0 1 ]

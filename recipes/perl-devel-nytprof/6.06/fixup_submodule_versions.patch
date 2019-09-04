@@ -1,0 +1,65 @@
+diff --git a/lib/Devel/NYTProf/Apache.pm b/lib/Devel/NYTProf/Apache.pm
+index ce2813ba6..0acf4a553 100644
+--- a/lib/Devel/NYTProf/Apache.pm
++++ b/lib/Devel/NYTProf/Apache.pm
+@@ -9,7 +9,7 @@
+ ###########################################################
+ package Devel::NYTProf::Apache;
+ 
+-our $VERSION = '4.00';
++our $VERSION = '6.06';
+ 
+ BEGIN {
+ 
+diff --git a/lib/Devel/NYTProf/Data.pm b/lib/Devel/NYTProf/Data.pm
+index fcc8d0af2..59646a535 100644
+--- a/lib/Devel/NYTProf/Data.pm
++++ b/lib/Devel/NYTProf/Data.pm
+@@ -58,7 +58,7 @@ use Devel::NYTProf::Util qw(
+     trace_level
+ );
+ 
+-our $VERSION = '4.02';
++our $VERSION = '6.06';
+ 
+ 
+ =head2 new
+diff --git a/lib/Devel/NYTProf/ReadStream.pm b/lib/Devel/NYTProf/ReadStream.pm
+index 7da40393d..3987e1a78 100644
+--- a/lib/Devel/NYTProf/ReadStream.pm
++++ b/lib/Devel/NYTProf/ReadStream.pm
+@@ -3,7 +3,7 @@ package Devel::NYTProf::ReadStream;
+ use warnings;
+ use strict;
+ 
+-our $VERSION = '4.00';
++our $VERSION = '6.06';
+ 
+ use base 'Exporter';
+ our @EXPORT_OK = qw(
+diff --git a/lib/Devel/NYTProf/Reader.pm b/lib/Devel/NYTProf/Reader.pm
+index 52d4a344b..5add39496 100644
+--- a/lib/Devel/NYTProf/Reader.pm
++++ b/lib/Devel/NYTProf/Reader.pm
+@@ -9,7 +9,7 @@
+ ###########################################################
+ package Devel::NYTProf::Reader;
+ 
+-our $VERSION = '4.06';
++our $VERSION = '6.06';
+ 
+ use warnings;
+ use strict;
+diff --git a/lib/Devel/NYTProf/Util.pm b/lib/Devel/NYTProf/Util.pm
+index 832e70410..d3e2628fd 100644
+--- a/lib/Devel/NYTProf/Util.pm
++++ b/lib/Devel/NYTProf/Util.pm
+@@ -40,7 +40,7 @@ use Cwd qw(getcwd);
+ use List::Util qw(sum);
+ use Devel::NYTProf::Core;
+ 
+-our $VERSION = '4.00';
++our $VERSION = '6.06';
+ 
+ our @EXPORT_OK = qw(
+     fmt_float

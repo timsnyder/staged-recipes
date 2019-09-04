@@ -12,6 +12,7 @@ source:
   sha256: {{ sha256 }}
   patches:
     - rm_exporter_line_from_test62-subcaller1_rdt.patch
+    - fixup_submodule_versions.patch
 
 # If this is a new build for the same version, increment the build
 # number. If you do not include this key, it defaults to 0.

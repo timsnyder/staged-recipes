@@ -1,14 +1,13 @@
 {% set name = "perl-compress-raw-lzma" %}
-{% set version = "2.087" %}
-{% set sha256 = "256c076f16538d07c109a3d37a96cf1154d2d1c215e85e81c4ee90ea19557568" %}
+{% set version = "2.074" %}
+{% set sha256 = "d48aae8c79c9178be6e9c887b9e264fa61d7119bfebccdb0c243ab9af392381c" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: Compress-Raw-Lzma-2.087.tar.gz
-  url: https://cpan.metacpan.org/authors/id/P/PM/PMQS/Compress-Raw-Lzma-2.087.tar.gz
+  url: https://cpan.metacpan.org/authors/id/P/PM/PMQS/Compress-Raw-Lzma-2.074.tar.gz
   sha256: {{ sha256 }}
 
 # If this is a new build for the same version, increment the build

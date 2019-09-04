@@ -1,14 +1,13 @@
 {% set name = "perl-io-compress-lzma" %}
-{% set version = "2.087" %}
-{% set sha256 = "34bffefa4bd294148938204a83a82f63c831c298432f61905f52666ea0dc7a60" %}
+{% set version = "2.074" %}
+{% set sha256 = "7509743fe4dc7a952bd449c0c0c97c3d6bdc9131d7d6e8d10de1892b95046f96" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: IO-Compress-Lzma-2.087.tar.gz
-  url: https://cpan.metacpan.org/authors/id/P/PM/PMQS/IO-Compress-Lzma-2.087.tar.gz
+  url: https://cpan.metacpan.org/authors/id/P/PM/PMQS/IO-Compress-Lzma-2.074.tar.gz
   sha256: {{ sha256 }}
 
 # If this is a new build for the same version, increment the build

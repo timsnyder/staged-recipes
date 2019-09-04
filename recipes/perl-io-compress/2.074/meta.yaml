@@ -1,14 +1,13 @@
 {% set name = "perl-io-compress" %}
-{% set version = "2.087" %}
-{% set sha256 = "94f792775d0496fffe862363c76637e74ff5b46c40cf47042547686d164e23cb" %}
+{% set version = "2.074" %}
+{% set sha256 = "b4bd68ce895a6578e5be96ade36449461becc328cc7ab900ae4e362380f097f2" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: IO-Compress-2.087.tar.gz
-  url: https://cpan.metacpan.org/authors/id/P/PM/PMQS/IO-Compress-2.087.tar.gz
+  url: https://cpan.metacpan.org/authors/id/P/PM/PMQS/IO-Compress-2.074.tar.gz
   sha256: {{ sha256 }}
 
 # If this is a new build for the same version, increment the build

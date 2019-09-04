@@ -1,3 +1,6 @@
+SET LIBLZMA_LIB=%PREFIX%/lib
+SET LIBLZMA_INCLUDE=%PREFIX%/include
+
 :: If it has Build.PL use that, otherwise use Makefile.PL
 IF exist Build.PL (
     perl Build.PL

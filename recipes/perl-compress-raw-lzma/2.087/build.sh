@@ -2,6 +2,9 @@
 
 set -xe
 
+export LIBLZMA_LIB="$PREFIX/lib"
+export LIBLZMA_INCLUDE="$PREFIX/include"
+
 # If it has Build.PL use that, otherwise use Makefile.PL
 if [ -f Build.PL ]; then
     perl Build.PL

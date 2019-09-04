@@ -22,9 +22,11 @@ requirements:
     - perl
     #- perl-extutils-makemaker
     - {{ compiler('c') }}
+    - xz
 
   run:
     - perl
+    - xz
 
 test:
   # Perl 'use' tests

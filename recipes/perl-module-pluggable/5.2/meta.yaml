@@ -1,0 +1,71 @@
+{% set name = "perl-module-pluggable" %}
+{% set version = "5.2" %}
+{% set sha256 = "b3f2ad45e4fd10b3fb90d912d78d8b795ab295480db56dc64e86b9fa75c5a6df" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Module-Pluggable-5.2.tar.gz
+  url: https://cpan.metacpan.org/authors/id/S/SI/SIMONW/Module-Pluggable-5.2.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    #- perl-file-spec-functions
+    #- perl-file-temp
+    #- perl-file-spec
+    #- perl-extutils-makemaker
+    #- perl-cwd
+    #- perl-data-dumper
+    #- perl-test-more
+    #- perl-warnings
+    #- perl-strict
+    #- perl-findbin
+    #- perl-if
+    #- perl-file-path
+    #- perl-base
+    #- perl-file-basename
+    #- perl-file-find
+    #- perl-exporter
+    #- perl-file-copy
+
+  run:
+    - perl
+    #- perl-file-spec-functions
+    #- perl-if
+    #- perl-file-spec
+    #- perl-file-basename
+    #- perl-file-find
+    #- perl-exporter
+    #- perl-strict
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Module::Pluggable
+    - Module::Pluggable::Object
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: http://metacpan.org/pod/Module-Pluggable
+  license: perl_5
+  summary: 'automatically give your module the ability to have plugins'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Module-Pluggable
+  cpan_module: Module-Pluggable
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

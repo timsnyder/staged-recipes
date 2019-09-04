@@ -64,7 +64,7 @@ requirements:
     #- perl-charnames
     #- perl-file-find
     #- perl-warnings
-    #- perl-module-pluggable
+    - perl-module-pluggable
     #- perl-ipc-open2
 
   run:
@@ -111,7 +111,7 @@ requirements:
     #- perl-charnames
     #- perl-file-find
     #- perl-warnings
-    #- perl-module-pluggable
+    - perl-module-pluggable
     #- perl-ipc-open2
 
 test:

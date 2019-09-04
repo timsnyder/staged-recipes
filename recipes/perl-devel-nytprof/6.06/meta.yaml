@@ -13,6 +13,7 @@ source:
   patches:
     - rm_exporter_line_from_test62-subcaller1_rdt.patch
     - fixup_submodule_versions.patch
+    - fixup_makefile_PL.patch
 
 # If this is a new build for the same version, increment the build
 # number. If you do not include this key, it defaults to 0.
@@ -32,12 +33,14 @@ requirements:
     #- perl-xsloader
     #- perl-list-util
     - {{ compiler('c') }}
+    - zlib
 
   run:
     - perl
     - perl-json-maybexs
     - perl-file-which
     - perl-test-differences
+    - zlib
     #- perl-xsloader
     #- perl-list-util
     #- perl-test-more

@@ -1,0 +1,36 @@
+diff --git a/Makefile.PL b/Makefile.PL
+index 60025de75..a41f0acc5 100644
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -59,13 +59,12 @@ utime time(), time(), "t/test40pmc.pmc"
+ 
+ # --- Discover how much of stdio is implemented
+ 
+-my $cpp = $Config{cpp} || do {
++my $cpp = $ENV{CPP} || $Config{cpp} || do {
+     warn "Warning: cpp not found in your perl config.  Falling back to 'cat'\n";
+     'cat';
+ };
+ 
+ print "Looking for header files and functions...\n";
+-my $INCLUDE;
+ 
+ my $h_files;
+ my @h_dirs;
+@@ -74,6 +73,8 @@ push @h_dirs, split ' ', $Config{libsdirs};
+ push @h_dirs, qw(/include /usr/include /usr/local/include /usr/include/mach);
+ @h_dirs = grep { -d $_ } @h_dirs;
+ 
++my $INCLUDE = join(' -I', @{['', @h_dirs]});
++
+ $h_files = find_h_files(@h_dirs);
+ 
+ # See lib/ExtUtils/MakeMaker.pm for details of how to influence
+@@ -165,7 +166,6 @@ WriteMakefile(
+         'Getopt::Long' => 0,
+         'JSON::MaybeXS' => 0,
+     },
+-    LIBS      => [join ' ', @libs],
+     OBJECT    => q/$(O_FILES)/,
+     FUNCLIST => ['boot_Devel__NYTProf', 'boot_Devel__NYTProf__FileHandle'],
+     EXE_FILES => ['bin/nytprofhtml', 'bin/flamegraph.pl', 'bin/nytprofcsv', 'bin/nytprofcalls', 'bin/nytprofcg', 'bin/nytprofmerge', 'bin/nytprofpf'],

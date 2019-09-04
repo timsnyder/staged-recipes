@@ -47,7 +47,6 @@ test:
   # Perl 'use' tests
   imports:
     - Devel::NYTProf
-    - Devel::NYTProf::Apache
     - Devel::NYTProf::Constants
     - Devel::NYTProf::Core
     - Devel::NYTProf::Data

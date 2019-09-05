@@ -30,16 +30,12 @@ requirements:
 test:
   # Perl 'use' tests
   imports:
-    - IO::Compress::Adapter::Lzip
     - IO::Compress::Adapter::Lzma
     - IO::Compress::Adapter::Xz
-    - IO::Compress::Lzip
     - IO::Compress::Lzma
     - IO::Compress::Xz
-    - IO::Uncompress::Adapter::UnLzip
     - IO::Uncompress::Adapter::UnLzma
     - IO::Uncompress::Adapter::UnXz
-    - IO::Uncompress::UnLzip
     - IO::Uncompress::UnLzma
     - IO::Uncompress::UnXz
 

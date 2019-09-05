@@ -1,0 +1,56 @@
+{% set name = "perl-devel-timer" %}
+{% set version = "0.12" %}
+{% set sha256 = "15cd2a7faffdae3621bd802a1da0d33076fda491dd7a383a6814a16078469391" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: Devel-Timer-0.12.tar.gz
+  url: https://cpan.metacpan.org/authors/id/M/MA/MANWAR/Devel-Timer-0.12.tar.gz
+  sha256: {{ sha256 }}
+
+# If this is a new build for the same version, increment the build
+# number. If you do not include this key, it defaults to 0.
+build:
+  number: 0
+
+requirements:
+  host:
+    - perl
+    - perl-capture-tiny
+    #- perl-test-more
+    #- perl-extutils-makemaker
+    #- perl-lib
+    #- perl-time-hires
+    #- perl-warnings
+    #- perl-strict
+
+  run:
+    - perl
+    #- perl-time-hires
+    #- perl-warnings
+    #- perl-strict
+
+test:
+  # Perl 'use' tests
+  imports:
+    - Devel::Timer
+
+  # You can also put a file called run_test.pl (or run_test.py) in the recipe
+  # that will be run at test time.
+
+about:
+  home: https://github.com/Manwar/Devel-Timer
+  license: perl_5
+  summary: 'Track and report execution time for parts of code'
+
+extra:
+  # these store the original arguments conda-skeleton was run with
+  cpan_distribution: Devel::Timer
+  cpan_module: Devel::Timer
+
+# See
+# https://docs.conda.io/projects/conda-build for
+# more information about meta.yaml

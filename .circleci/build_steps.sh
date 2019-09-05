@@ -61,7 +61,12 @@ conda-build:
 
 show_channel_urls: true
 
+ssl_verify: /etc/pki/tls/cert.pem
+
+
 CONDARC
+
+conda config --show-sources
 
 # Copy the host recipes folder so we don't ever muck with it
 cp -r /home/conda/staged-recipes/recipes ~/conda-recipes

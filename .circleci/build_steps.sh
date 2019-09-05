@@ -9,10 +9,52 @@ set -xeuo pipefail
 export PYTHONUNBUFFERED=1
 
 cat >~/.condarc <<CONDARC
+# Point to the internal Anaconda Enterprise repo
+channel_alias: https://conda0.sarc.samsung.com/repository/conda
+
+# explicitly configure default channels.  If/when we mirror either of these,
+# we will need to update the defined default channels
+default_channels:
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+
+# give Anaconda.org channels we will use in our channels list a short-name
+# That way, if we choose to mirror those channels later, we can change the
+# short name and have them
+#
+# custom_channels (map: str)
+#   A map of key-value pairs where the key is a channel name and the value
+#   is a channel location. Channels defined here override the default
+#   'channel_alias' value. The channel name (key) is not included in the
+#   channel location (value).  For example, to override the location of
+#   the 'conda-forge' channel where the url to repodata is
+#   https://anaconda-repo.dev/packages/conda-forge/linux-64/repodata.json,
+#   add an entry 'conda-forge: https://anaconda-repo.dev/packages'.
+#
+custom_channels:
+  conda-forge: https://conda.anaconda.org
+
+# migrated_channel_aliases (sequence: str)
+#   env var string delimiter: ','
+#   A list of previously-used channel_alias values. Useful when switching
+#   between different Anaconda Repository instances.
+#
+migrated_channel_aliases:
+  - http://anaconda.spa.sarc.samsung.com/conda
+
+# # migrated_custom_channels (map: str)
+# #   A map of key-value pairs where the key is a channel name and the value
+# #   is the previous location of the channel.
+# #
+# migrated_custom_channels: {}
 
 channels:
- - conda-forge
- - defaults
+#  - spa-overrides        # SPA team channel. contact tsnyder
+  - conda-forge          # https://conda-forge.org/docs/user/introduction.html
+  - defaults             # expands to default_channels configured above
+#  - spa                  # SPA team channel. To be given membership for uploading packages, contact tsnyder
+#  - anaconda-enterprise  # needed for anaconda-enterprise-cli
+
 
 conda-build:
  root-dir: /home/conda/staged-recipes/build_artifacts
@@ -49,5 +91,7 @@ find ~/conda-recipes -mindepth 2 -maxdepth 2 -type f -name "yum_requirements.txt
     xargs -r /usr/bin/sudo -n yum install -y
 
 python ~/.ci_support/build_all.py ~/conda-recipes
+
+cp -rf /home/conda/feedstock_root/build_artifacts/linux-64 /home/conda/staged-recipes/build_artifacts 
 
 touch "/home/conda/staged-recipes/build_artifacts/conda-forge-build-done"

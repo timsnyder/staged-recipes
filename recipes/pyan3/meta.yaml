@@ -1,0 +1,47 @@
+{% set name = "pyan3" %}
+{% set version = "1.0.4" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 2b1bd0a6aa7f2293c74b5ea8a43aacbf3bcfc47bac57f515b08ef657d67d4d4b
+
+build:
+  noarch: python
+  number: 0
+  skip: True  # [py2]
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+
+test:
+  commands:
+    - pyan3 -h
+  imports:
+    - pyan
+
+about:
+  home: https://github.com/Technologicat/pyan
+  license: GPL-2.0
+  license_family: GPL
+  license_file: LICENSE.md
+  summary: 'Generate approximate call graphs for Python programs.'
+
+  # The remaining entries in this section are optional, but recommended.
+  description: |
+    Pyan takes one or more Python source files, performs a (rather superficial) static analysis, and
+    constructs a directed graph of the objects in the combined source, and how they define or use
+    each other. The graph can be output for rendering by GraphViz or yEd.
+
+extra:
+  recipe-maintainers:
+    - timsnyder
+

@@ -10,6 +10,9 @@ source:
   fn: ExtUtils-Helpers-0.026.tar.gz
   url: https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Helpers-0.026.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    # doesn't work with long prefix but should be fine
+    - rm_make_executable_t.patch
 
 # If this is a new build for the same version, increment the build
 # number. If you do not include this key, it defaults to 0.
